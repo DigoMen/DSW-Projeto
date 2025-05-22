@@ -69,28 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       filmesContainer.appendChild(filmeDiv);
     }
   
-    // Função para salvar filmes no localStorage
-    function saveFilmes() {
-      const filmes = [];
-      document.querySelectorAll('.filme').forEach((filmeDiv, index) => {
-        const filme = {
-          titulo: filmeDiv.querySelector('h2').textContent,
-          diretor: filmeDiv.querySelector('p:nth-of-type(1)').textContent.replace('Diretor: ', ''),
-          roteirista: filmeDiv.querySelector('p:nth-of-type(2)').textContent.replace('Roteirista: ', ''),
-          elenco: filmeDiv.querySelector('p:nth-of-type(3)').textContent.replace('Elenco: ', ''),
-          nota: filmeDiv.querySelector('h3').textContent.replace('Nota: ', ''),
-          imagem: filmeDiv.querySelector('img').src
-        };
-        filmes.push(filme);
-      });
-      localStorage.setItem('filmes', JSON.stringify(filmes));
-    }
-  
-    // Função para carregar filmes do localStorage
-    function loadFilmes() {
-      const filmes = JSON.parse(localStorage.getItem('filmes')) || [];
-      filmes.forEach((filme, index) => addFilme(filme, index));
-    }
+   
   
     // Função para editar um filme
     window.editarFilme = function (index) {
